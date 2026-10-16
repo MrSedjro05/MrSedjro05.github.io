@@ -753,7 +753,7 @@
     }
 
     .proj-shot {
-      aspect-ratio: 16/9;
+      aspect-ratio: 16/10;
       border-radius: 12px;
       margin: -8px -8px 2px;
       width: calc(100% + 16px);
@@ -2540,16 +2540,20 @@
 
       // Projects
       var projects = [
+        { n: 'WebCRM', c: 'Gestion', d: 'CRM pour suivre prospects et clients, avec un parcours de conversion du prospect au client.', t: ['PHP', 'SQL', 'JavaScript'], o: 'TEO Group', img: 'webcrm', cap: 'WebCRM · site, espace client et version mobile', capEN: 'WebCRM · website, client area and mobile version' },
+        { n: 'Support · Ticket Dev', c: 'Outils internes', d: 'Gestion des demandes utilisateurs avec classement par urgence et catégorie, suivi et validation par superviseurs.', t: ['PHP', 'SQL', 'JavaScript'], o: 'TEO Group', img: 'support', cap: 'Support · tableau de bord, tickets et application mobile', capEN: 'Support · dashboard, tickets and mobile app' },
+        { n: 'TeoEco Pharma', c: 'Logistique', d: 'Transport de produits de santé sous température dirigée (-20 °C à +40 °C) : planification, suivi des expéditions, qualité et facturation, avec un module Java.', t: ['Web', 'Java'], o: 'TEO Group', img: 'teoeco-pharma', cap: 'TeoEco Pharma · site et module Java', capEN: 'TeoEco Pharma · website and Java module' },
+        { n: 'Teo Logistics', c: 'Logistique', d: 'Transport national et international : fret aérien, douane, emballage et livraison premium, avec suivi des expéditions en temps réel.', t: ['Web', 'Mobile'], o: 'TEO Group', img: 'teo-logistics', cap: 'Teo Logistics · site et application mobile', capEN: 'Teo Logistics · website and mobile app' },
+        { n: 'TeoLLS', c: 'Santé', d: 'Transport d’échantillons cliniques et de produits biomédicaux, avec traçabilité, respect de la chaîne du froid et espace client.', t: ['Web', 'Mobile'], o: 'TEO Group', img: 'teolls', cap: 'TeoLLS · site et application mobile', capEN: 'TeoLLS · website and mobile app' },
+        { n: 'Brode Services', c: 'Logistique', d: 'Plateforme d\'externalisation d\'activités pour entreprises, avec une interface fluide et intuitive.', t: ['HTML/CSS', 'PHP', 'AJAX'], o: 'TEO Group', img: 'brode-services', cap: 'Brode Services · page d’accueil', capEN: 'Brode Services · home page' },
+        { n: 'Jis RH', c: 'Outils internes', d: 'Gestion du personnel sur web et mobile : présences, pauses, fins de journée, congés et matériel de service.', t: ['Web', 'Mobile'], o: 'JIS Computing', img: 'jis-rh', cap: 'Jis RH · tableau de bord web et application mobile', capEN: 'Jis RH · web dashboard and mobile app' },
         { n: 'Jisproject', c: 'Gestion', d: 'Plateforme de gestion de projet sur mesure : planification, suivi et pilotage jusqu\'à la livraison.', t: ['PHP', 'MySQL', 'AJAX'], o: 'TEO Group', img: 'jisproject', cap: 'Jisproject · vue Gantt de l\'activité', capEN: 'Jisproject · activity Gantt view' },
         { n: 'TOPTEO Relay', c: 'Logistique', d: 'Site d\'expédition de colis de la France vers l\'Afrique francophone, avec suivi et traçabilité.', t: ['PHP', 'JavaScript', 'SQL'], o: 'TEO Group', img: 'topteo-relay', cap: 'TOPTEO Relay · formulaire d\'envoi de colis', capEN: 'TOPTEO Relay · parcel shipping form' },
         { n: 'Farmaceo', c: 'Santé', d: 'Site conforme aux normes ANSM pour la gestion du stockage de produits pharmaceutiques, sur mobile, tablette et PC.', t: ['PHP', 'Responsive', 'SQL'], o: 'TEO Group', img: 'farmaceo', cap: 'Farmaceo · espace de gestion', capEN: 'Farmaceo · management area' },
-        { n: 'WebCRM', c: 'Gestion', d: 'CRM pour suivre prospects et clients, avec un parcours de conversion du prospect au client.', t: ['PHP', 'SQL', 'JavaScript'], o: 'TEO Group' },
-        { n: 'Support · Ticket Dev', c: 'Outils internes', d: 'Gestion des demandes utilisateurs avec classement par urgence et catégorie, suivi et validation par superviseurs.', t: ['PHP', 'SQL', 'JavaScript'], o: 'TEO Group' },
         { n: 'Recrute RH (TLMS)', c: 'Outils internes', d: 'Application interne de recrutement : offres d\'emploi, candidatures et sélection des profils.', t: ['PHP', 'MySQL'], o: 'TRANSPORTEO International' },
         { n: 'AdminMailer', c: 'Outils internes', d: 'Administration multilingue et multi-utilisateurs des comptes e-mail d\'un serveur Linux.', t: ['PHP', 'Linux', 'SQL'], o: 'TEO Group' },
-        { n: 'Brode Services', c: 'Logistique', d: 'Plateforme d\'externalisation d\'activités pour entreprises, avec une interface fluide et intuitive.', t: ['HTML/CSS', 'PHP', 'AJAX'], o: 'TEO Group' },
         { n: 'Biostorage', c: 'Santé', d: 'Stockage biologique sécurisé et traçable, avec vidéosurveillance et contrôle d\'accès biométrique.', t: ['PHP', 'Sécurité', 'SQL'], o: 'TEO Group' },
-        { n: 'GED & gestion de projet', c: 'Gestion', d: 'Projet de mémoire : gestion électronique des documents et collaboration autour des projets.', t: ['PHP', 'Python', 'Merise'], o: 'La Vedette Média' }
+        { n: 'GED & gestion de projet', c: 'Gestion', d: 'Projet de mémoire : gestion électronique des documents et collaboration autour des projets.', t: ['PHP', 'Python', 'Merise'], o: 'La Vedette Média' },
       ];
       var lang = 'fr';
       var catEN = { 'Tous': 'All', 'Gestion': 'Management', 'Outils internes': 'Internal tools', 'Logistique': 'Logistics', 'Santé': 'Healthcare' };
@@ -2563,6 +2567,10 @@
         'Brode Services': ['Brode Services', 'Business process outsourcing platform with a smooth, intuitive interface.'],
         'Farmaceo': ['Farmaceo', 'ANSM-compliant site for pharmaceutical storage management, on mobile, tablet and desktop.'],
         'Biostorage': ['Biostorage', 'Secure, traceable biological storage with video surveillance and biometric access control.'],
+        'TeoEco Pharma': ['TeoEco Pharma', 'Temperature-controlled shipping for healthcare products (-20 °C to +40 °C): planning, shipment tracking, quality and invoicing, with a Java module.'],
+        'Teo Logistics': ['Teo Logistics', 'National and international transport: air freight, customs, packaging and premium delivery, with real-time shipment tracking.'],
+        'TeoLLS': ['TeoLLS', 'Transport of clinical samples and biomedical products, with traceability, cold-chain compliance and a customer area.'],
+        'Jis RH': ['Jis RH', 'Web and mobile staff management: attendance, breaks, end of day, leave requests and work equipment.'],
         'GED & gestion de projet': ['EDM & project management', 'Thesis project: electronic document management and project collaboration.']
       };
       var tagEN = { 'Sécurité': 'Security' };
