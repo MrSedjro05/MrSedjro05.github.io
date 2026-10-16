@@ -1483,6 +1483,39 @@
       color: var(--muted-d)
     }
 
+    /* Graphic design gallery: masonry columns so posters keep their full format */
+    .gfx {
+      columns: 3;
+      column-gap: 16px
+    }
+
+    .gfx .shot {
+      margin: 0 0 16px;
+      break-inside: avoid;
+      border: 1px solid var(--line)
+    }
+
+    .gfx .shot img {
+      height: auto
+    }
+
+    .gfx-note {
+      margin: 8px 0 0;
+      font: 500 12px var(--f-mono);
+      color: var(--muted)
+    }
+
+    @media (max-width:860px) {
+      .gfx {
+        columns: 2;
+        column-gap: 12px
+      }
+
+      .gfx .shot {
+        margin-bottom: 12px
+      }
+    }
+
     /* Lightbox */
     .lb {
       position: fixed;
@@ -2056,6 +2089,51 @@
     </div>
   </section>
 
+  <section id="graphisme">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="route">GET /graphisme</span>
+          <h2>Identité visuelle</h2>
+        </div>
+        <p>Logos, affiches, bannières, signalétique et brochures, conçus sous Photoshop pour des associations, des paroisses et une agence de tourisme.</p>
+      </div>
+      <div class="gfx">
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/ouidah-brochure-recto.webp" data-cap="Ouidah Héritage Tour · brochure, recto"><img
+            src="img/graphisme/ouidah-brochure-recto-min.webp" alt="Brochure touristique trois volets pour Ouidah Héritage Tour, face avant" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/ouidah-logo.webp" data-cap="Ouidah Héritage Tour · logo"><img
+            src="img/graphisme/ouidah-logo-min.webp" alt="Logo circulaire avec serpent, bateau et colonnes, entouré d'une tresse bleue, rouge et or" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/ouidah-brochure-verso.webp" data-cap="Ouidah Héritage Tour · brochure, verso"><img
+            src="img/graphisme/ouidah-brochure-verso-min.webp" alt="Face intérieure de la brochure : expériences, Route des Esclaves et arguments" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/croisade-jj01.webp" data-cap="Croisade de la jeunesse chrétienne · affiche"><img
+            src="img/graphisme/croisade-jj01-min.webp" alt="Affiche JJ-01 Croisade de la jeunesse chrétienne, juillet 2026" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/neuvaine-archanges.webp" data-cap="Neuvaine aux archanges · affiche"><img
+            src="img/graphisme/neuvaine-archanges-min.webp" alt="Affiche de neuvaine avec l'archange saint Michel" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/combat-spirituel.webp" data-cap="Séminaire sur le combat spirituel · affiche"><img
+            src="img/graphisme/combat-spirituel-min.webp" alt="Affiche bleu nuit et orange d'un séminaire en quatre samedis" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/combat-spirituel-themes.webp" data-cap="Séminaire sur le combat spirituel · sous-thèmes"><img
+            src="img/graphisme/combat-spirituel-themes-min.webp" alt="Visuel présentant les quatre sous-thèmes du séminaire" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/rencontre-communautaire.webp" data-cap="Rencontre communautaire · affiche"><img
+            src="img/graphisme/rencontre-communautaire-min.webp" alt="Affiche bleue d'une rencontre communautaire sur le thème de Marie au pied de la croix" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/matins-louange.webp" data-cap="7 matins de louange · affiche"><img
+            src="img/graphisme/matins-louange-min.webp" alt="Affiche bleu et or d'une semaine de louange en ligne" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/pentecote-paysage.webp" data-cap="Célébration de la Pentecôte · bannière"><img
+            src="img/graphisme/pentecote-paysage-min.webp" alt="Bannière de Pentecôte avec une colombe de feu" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/pentecote-carre.webp" data-cap="Célébration de la Pentecôte · post carré"><img
+            src="img/graphisme/pentecote-carre-min.webp" alt="Visuel carré de Pentecôte sur fond de flammes" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/pentecote-carre-2.webp" data-cap="Célébration de la Pentecôte · variante"><img
+            src="img/graphisme/pentecote-carre-2-min.webp" alt="Variante du visuel carré de Pentecôte" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/langue-de-feu-accueil.webp" data-cap="Espace Langue de Feu · panneau Accueil"><img
+            src="img/graphisme/langue-de-feu-accueil-min.webp" alt="Panneau d'accueil rouge et blanc de l'Espace Langue de Feu" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/langue-de-feu-intercession.webp" data-cap="Espace Langue de Feu · panneau Intercession"><img
+            src="img/graphisme/langue-de-feu-intercession-min.webp" alt="Panneau Intercession de l'Espace Langue de Feu" loading="lazy"></button>
+        <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/langue-de-feu-organisation.webp" data-cap="Espace Langue de Feu · panneau Organisation"><img
+            src="img/graphisme/langue-de-feu-organisation-min.webp" alt="Panneau Organisation de l'Espace Langue de Feu" loading="lazy"></button>
+      </div>
+      <p class="gfx-note">Coordonnées et noms de personnes floutés par confidentialité.</p>
+    </div>
+  </section>
+
   <section id="atelier" class="atelier">
     <div class="wrap">
       <div class="sec-head">
@@ -2621,7 +2699,23 @@
         'Ex. Aïcha Dossou': 'e.g. Aïcha Dossou', "Nom de l'entreprise": 'Company name',
         'Décrivez votre projet : objectif, fonctionnalités principales, site existant…': 'Describe your project: goal, main features, existing site…',
         'Au bureau, Cotonou': 'At the office, Cotonou', 'Soirée professionnelle': 'Professional evening', 'Séance de travail en équipe': 'Team working session',
-        "Mise en situation · salon d'accueil": 'In situ · reception lounge',
+'Logos, affiches, bannières, signalétique et brochures, conçus sous Photoshop pour des associations, des paroisses et une agence de tourisme.': 'Logos, posters, banners, signage and brochures, designed in Photoshop for associations, parishes and a tourism agency.', 'Coordonnées et noms de personnes floutés par confidentialité.': 'Contact details and personal names blurred for confidentiality.',
+        'Ouidah Héritage Tour · brochure, recto': 'Ouidah Heritage Tour · brochure, front',
+        'Ouidah Héritage Tour · logo': 'Ouidah Heritage Tour · logo',
+        'Ouidah Héritage Tour · brochure, verso': 'Ouidah Heritage Tour · brochure, back',
+        'Croisade de la jeunesse chrétienne · affiche': 'Christian youth crusade · poster',
+        'Neuvaine aux archanges · affiche': 'Novena to the archangels · poster',
+        'Séminaire sur le combat spirituel · affiche': 'Seminar on spiritual warfare · poster',
+        'Séminaire sur le combat spirituel · sous-thèmes': 'Seminar on spiritual warfare · sub-themes',
+        'Rencontre communautaire · affiche': 'Community gathering · poster',
+        '7 matins de louange · affiche': '7 mornings of praise · poster',
+        'Célébration de la Pentecôte · bannière': 'Pentecost celebration · banner',
+        'Célébration de la Pentecôte · post carré': 'Pentecost celebration · square post',
+        'Célébration de la Pentecôte · variante': 'Pentecost celebration · variant',
+        'Espace Langue de Feu · panneau Accueil': 'Langue de Feu · Welcome sign',
+        'Espace Langue de Feu · panneau Intercession': 'Langue de Feu · Intercession sign',
+        'Espace Langue de Feu · panneau Organisation': 'Langue de Feu · Organisation sign',
+                "Mise en situation · salon d'accueil": 'In situ · reception lounge',
         'Sommets · bois peint, vert émeraude et blanc': 'Peaks · painted wood, emerald and white',
         'Losange solaire · bois peint, jaune or et noir': 'Solar Diamond · painted wood, gold and black',
         'Flèches émeraude · bois peint': 'Emerald Arrows · painted wood', 'Croisée · bois peint noir et blanc': 'Crossing · black and white painted wood',
