@@ -752,6 +752,18 @@
       transform: translateY(-2px)
     }
 
+    .proj-shot {
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      margin: -8px -8px 2px;
+      width: calc(100% + 16px);
+      border: 1px solid var(--line)
+    }
+
+    .proj-shot img {
+      object-position: 50% 0
+    }
+
     .proj-top {
       display: flex;
       justify-content: space-between;
@@ -2130,7 +2142,7 @@
         <button class="shot" type="button" data-lb="gfx" data-src="img/graphisme/langue-de-feu-organisation.webp" data-cap="Espace Langue de Feu · panneau Organisation"><img
             src="img/graphisme/langue-de-feu-organisation-min.webp" alt="Panneau Organisation de l'Espace Langue de Feu" loading="lazy"></button>
       </div>
-      <p class="gfx-note">Coordonnées et noms de personnes floutés par confidentialité.</p>
+      <p class="gfx-note">Visuels floutés par confidentialité : aperçu de la mise en page et des couleurs.</p>
     </div>
   </section>
 
@@ -2485,11 +2497,11 @@
       // Lightbox
       var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'), group = [], idx = 0, opener = null;
       function show() { var b = group[idx]; lbImg.src = b.getAttribute('data-src'); lbImg.alt = b.querySelector('img').alt; lbCap.textContent = b.getAttribute('data-cap') + '  ·  ' + (idx + 1) + ' / ' + group.length; }
-      document.querySelectorAll('[data-lb]').forEach(function (b) {
-        b.addEventListener('click', function () { opener = b; group = [].slice.call(document.querySelectorAll('[data-lb="' + b.getAttribute('data-lb') + '"]')); idx = group.indexOf(b); show(); lb.hidden = false; document.getElementById('lbX').focus(); });
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-lb]'); if (!b) return;
+        opener = b; group = [].slice.call(document.querySelectorAll('[data-lb="' + b.getAttribute('data-lb') + '"]')); idx = group.indexOf(b); show(); lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lbX').focus();
       });
       function close() { lb.hidden = true; document.body.style.overflow = ''; if (opener) opener.focus(); }
-      document.querySelectorAll('[data-lb]').forEach(function (b) { b.addEventListener('click', function () { document.body.style.overflow = 'hidden'; }); });
       // Swipe between photos on touch screens
       var tx = null;
       lb.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
@@ -2528,14 +2540,14 @@
 
       // Projects
       var projects = [
+        { n: 'Jisproject', c: 'Gestion', d: 'Plateforme de gestion de projet sur mesure : planification, suivi et pilotage jusqu\'à la livraison.', t: ['PHP', 'MySQL', 'AJAX'], o: 'TEO Group', img: 'jisproject', cap: 'Jisproject · vue Gantt de l\'activité', capEN: 'Jisproject · activity Gantt view' },
+        { n: 'TOPTEO Relay', c: 'Logistique', d: 'Site d\'expédition de colis de la France vers l\'Afrique francophone, avec suivi et traçabilité.', t: ['PHP', 'JavaScript', 'SQL'], o: 'TEO Group', img: 'topteo-relay', cap: 'TOPTEO Relay · formulaire d\'envoi de colis', capEN: 'TOPTEO Relay · parcel shipping form' },
+        { n: 'Farmaceo', c: 'Santé', d: 'Site conforme aux normes ANSM pour la gestion du stockage de produits pharmaceutiques, sur mobile, tablette et PC.', t: ['PHP', 'Responsive', 'SQL'], o: 'TEO Group', img: 'farmaceo', cap: 'Farmaceo · espace de gestion', capEN: 'Farmaceo · management area' },
         { n: 'WebCRM', c: 'Gestion', d: 'CRM pour suivre prospects et clients, avec un parcours de conversion du prospect au client.', t: ['PHP', 'SQL', 'JavaScript'], o: 'TEO Group' },
-        { n: 'Jisproject', c: 'Gestion', d: 'Plateforme de gestion de projet sur mesure : planification, suivi et pilotage jusqu\'à la livraison.', t: ['PHP', 'MySQL', 'AJAX'], o: 'TEO Group' },
         { n: 'Support · Ticket Dev', c: 'Outils internes', d: 'Gestion des demandes utilisateurs avec classement par urgence et catégorie, suivi et validation par superviseurs.', t: ['PHP', 'SQL', 'JavaScript'], o: 'TEO Group' },
         { n: 'Recrute RH (TLMS)', c: 'Outils internes', d: 'Application interne de recrutement : offres d\'emploi, candidatures et sélection des profils.', t: ['PHP', 'MySQL'], o: 'TRANSPORTEO International' },
         { n: 'AdminMailer', c: 'Outils internes', d: 'Administration multilingue et multi-utilisateurs des comptes e-mail d\'un serveur Linux.', t: ['PHP', 'Linux', 'SQL'], o: 'TEO Group' },
-        { n: 'TOPTEO Relay', c: 'Logistique', d: 'Site d\'expédition de colis de la France vers l\'Afrique francophone, avec suivi et traçabilité.', t: ['PHP', 'JavaScript', 'SQL'], o: 'TEO Group' },
         { n: 'Brode Services', c: 'Logistique', d: 'Plateforme d\'externalisation d\'activités pour entreprises, avec une interface fluide et intuitive.', t: ['HTML/CSS', 'PHP', 'AJAX'], o: 'TEO Group' },
-        { n: 'Farmaceo', c: 'Santé', d: 'Site conforme aux normes ANSM pour la gestion du stockage de produits pharmaceutiques, sur mobile, tablette et PC.', t: ['PHP', 'Responsive', 'SQL'], o: 'TEO Group' },
         { n: 'Biostorage', c: 'Santé', d: 'Stockage biologique sécurisé et traçable, avec vidéosurveillance et contrôle d\'accès biométrique.', t: ['PHP', 'Sécurité', 'SQL'], o: 'TEO Group' },
         { n: 'GED & gestion de projet', c: 'Gestion', d: 'Projet de mémoire : gestion électronique des documents et collaboration autour des projets.', t: ['PHP', 'Python', 'Merise'], o: 'La Vedette Média' }
       ];
@@ -2567,7 +2579,8 @@
       function renderProjects() {
         pEl.innerHTML = projects.filter(function (p) { return active === 'Tous' || p.c === active }).map(function (p) {
           var en = lang === 'en' && projEN[p.n], name = en ? en[0] : p.n, desc = en ? en[1] : p.d;
-          return '<article class="proj"><div class="proj-top"><span class="cat">' + esc(tc(p.c)) + '</span><span>' + esc(p.o) + '</span></div><h3>' + esc(name) + '</h3><p>' + esc(desc) + '</p><div class="tags">' + p.t.map(function (t) { return '<span>' + esc(lang === 'en' && tagEN[t] || t) + '</span>' }).join('') + '</div></article>';
+          var shot = p.img ? '<button class="shot proj-shot" type="button" data-lb="web" data-src="img/projets/' + p.img + '.webp" data-cap="' + esc(lang === 'en' ? p.capEN : p.cap) + '"><img src="img/projets/' + p.img + '-min.webp" alt="' + esc((lang === 'en' ? 'Screenshot of ' : 'Capture d’écran de ') + name) + '" loading="lazy"></button>' : '';
+          return '<article class="proj' + (p.img ? ' has-shot' : '') + '">' + shot + '<div class="proj-top"><span class="cat">' + esc(tc(p.c)) + '</span><span>' + esc(p.o) + '</span></div><h3>' + esc(name) + '</h3><p>' + esc(desc) + '</p><div class="tags">' + p.t.map(function (t) { return '<span>' + esc(lang === 'en' && tagEN[t] || t) + '</span>' }).join('') + '</div></article>';
         }).join('');
       }
       fEl.addEventListener('click', function (e) { var b = e.target.closest('.chip'); if (!b) return; active = b.getAttribute('data-c'); renderFilters(); renderProjects(); });
@@ -2699,7 +2712,7 @@
         'Ex. Aïcha Dossou': 'e.g. Aïcha Dossou', "Nom de l'entreprise": 'Company name',
         'Décrivez votre projet : objectif, fonctionnalités principales, site existant…': 'Describe your project: goal, main features, existing site…',
         'Au bureau, Cotonou': 'At the office, Cotonou', 'Soirée professionnelle': 'Professional evening', 'Séance de travail en équipe': 'Team working session',
-'Logos, affiches, bannières, signalétique et brochures, conçus sous Photoshop pour des associations, des paroisses et une agence de tourisme.': 'Logos, posters, banners, signage and brochures, designed in Photoshop for associations, parishes and a tourism agency.', 'Coordonnées et noms de personnes floutés par confidentialité.': 'Contact details and personal names blurred for confidentiality.',
+'Logos, affiches, bannières, signalétique et brochures, conçus sous Photoshop pour des associations, des paroisses et une agence de tourisme.': 'Logos, posters, banners, signage and brochures, designed in Photoshop for associations, parishes and a tourism agency.', 'Visuels floutés par confidentialité : aperçu de la mise en page et des couleurs.': 'Visuals blurred for confidentiality: a preview of layout and colours.',
         'Ouidah Héritage Tour · brochure, recto': 'Ouidah Heritage Tour · brochure, front',
         'Ouidah Héritage Tour · logo': 'Ouidah Heritage Tour · logo',
         'Ouidah Héritage Tour · brochure, verso': 'Ouidah Heritage Tour · brochure, back',
